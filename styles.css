@@ -9,8 +9,8 @@ h3 {
 
 .header {
   padding: 100px;
-  background: #grey;
-  opacity: 60%;
+  background-color: grey;
+  opacity:0.5;
   color: white;
   font-size: 30px;
 }
@@ -23,5 +23,10 @@ h3 {
   width: 100%;
   background-color: grey;
   color: white;
-  opacity: 60%;
+  opacity:0.5;
+}
+
+.middle {
+  position: fixed;
+  top: 15%;
 }
