@@ -74,6 +74,24 @@ body {
     .headerText {
       text-align: right;
       color: whiite;
+      padding-right: 50px;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: rgba(0,0,0,.7);
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+
+      position: fixed;
+      z-index: 50;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
     }
 
 		p {
@@ -88,5 +106,5 @@ body {
 
 		nav ul a {
 			color: white;
-			text-decoration: none;
+			text-decoration: underline;
 		}
