@@ -163,6 +163,10 @@ body {
 		  animation-duration: 0.6s;
 		}
 
+		a {
+			color: white;
+		}
+
 		p {
 			color: white;
 		}
