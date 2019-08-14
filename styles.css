@@ -9,13 +9,12 @@ body {
       color: white;
 		}
 
-		#nav {
+		.nav {
 			position: absolute;
 			top: 0px;
-			left: 0;
-			bottom: 0;
+			float: left;
+			height: 100%;
 			width: 230px;
-			overflow: auto;
       background-color: rgba(0,0,0,.5);
 		}
 
@@ -84,7 +83,7 @@ body {
 			padding-left: 60px;
 			position: relative;
 			width: 80%;
-			height: 40%;
+			float: left;
 		}
 
 		.sectionInnerLeft {
