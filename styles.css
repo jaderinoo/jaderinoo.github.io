@@ -18,7 +18,7 @@ body {
       background-color: rgba(0,0,0,.5);
 		}
 
-    #navBack {
+    .navBack {
 			position: relative;
 			top: 100px;
 			left: 0;
@@ -29,7 +29,7 @@ body {
       opacity: 0.2;
 		}
 
-    #navSide {
+    .navSide {
       position: absolute;
 			top: 0px;
 			left: 230px;
@@ -38,12 +38,6 @@ body {
 			overflow: auto;
       background-color: white;
     }
-
-		#logo {
-			padding:10px;
-      padding-left: 20px;
-      color: white;
-		}
 
 		#myImg {
 		  border-radius: 5px;
@@ -98,7 +92,7 @@ body {
 
 		main {
 			position: fixed;
-			top: 150px;
+			top: 100px;
 			left: 230px;
 			right: 0;
 			bottom: 0;
