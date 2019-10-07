@@ -38,11 +38,6 @@ var pJS = function(tag_id, params){
         polygon: {
           nb_sides: 5
         },
-        image: {
-          src: '',
-          width: 100,
-          height: 100
-        }
       },
       opacity: {
         value: 1,
