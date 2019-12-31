@@ -9,6 +9,34 @@
    	<body id="particles-js">
       <script src="js/app.js"></script>
    		<main>
+        <div class="sectionMain">
+          <h1>AGOSS (Basic Swing Version)</h1>
+          <div class="sectionInnerLeft">
+            <ul>
+              <p>A basic RPG based game engine</p>
+              <li>Allows users to create their own:</li>
+              <ul>
+                <li>Levels</li>
+                <li>Characters</li>
+                <li>Tilesets</li>
+                <li>Scenarios</li>
+              </ul>
+              </br>
+              <li>Created with Java and Swing from the ground up with a full GUI.</li>
+              </br>
+              <li>Github: <a href="https://github.com/jaderinoo/AGOSS">AGOSS</a></li>
+            </ul>
+          </div>
+          <div class="sectionInnerRight">
+            <div>
+              <p>CryptoTelegramBot:</p>
+              <img id="myImg3" src="images/AGOSS.png" class="portrait" height=auto width="150px">
+              <div id="myModal3" class="modal">
+                <img class="modal-content" id="img03">
+              </div>
+            </div>
+          </div>
+        </div>
    			<div class="sectionMain">
    				<h1>CryptoTelegramBot (Active)</h1>
           <div class="sectionInnerLeft">
@@ -115,6 +143,17 @@
       // Get the image and insert it inside the modal - use its "alt" text as a caption
       var img = document.getElementById("myImg2");
       var modalImg = document.getElementById("img02");
+      img.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      }
+
+      // Get the modal
+      var modal = document.getElementById("myModal3");
+
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById("myImg3");
+      var modalImg = document.getElementById("img03");
       img.onclick = function(){
         modal.style.display = "block";
         modalImg.src = this.src;

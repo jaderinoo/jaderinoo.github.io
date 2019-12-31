@@ -30,12 +30,13 @@ body {
 		}
 
     .navSide {
-      position: absolute;
+			position: fixed;
+			z-index: 1;
 			top: 0px;
 			left: 230px;
 			bottom: 0;
 			width: 5px;
-			overflow: auto;
+			overflow-x: hidden;
       background-color: grey;
     }
 
@@ -92,7 +93,7 @@ body {
 
 		main {
 			position: fixed;
-			top: 100px;
+			top: 20px;
 			left: 230px;
 			right: 0;
 			bottom: 0;
@@ -102,7 +103,7 @@ body {
 		.innertube {
 			margin: 15px;
       color: white;
-      padding-top: 25%;
+      padding-top: 15%;
 		}
 
     .headerText {
