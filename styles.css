@@ -61,8 +61,8 @@ body {
 	p.innertext {
 		color: rgba(39, 35, 35, 0.877);
 		text-align: left;
-		padding-left: 300px;
-		padding-right: 300px;
+		padding-left: 15%;
+		padding-right: 15%;
 	}
 
 	.innertube {
