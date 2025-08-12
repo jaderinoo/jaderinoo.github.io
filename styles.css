@@ -26,6 +26,95 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Animations and Keyframes */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInFromLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes typing {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
+@keyframes blink {
+	50% {
+		border-color: transparent;
+	}
+}
+
+@keyframes float {
+
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+}
+
+@keyframes pulse {
+
+	0%,
+	100% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.05);
+	}
+}
+
+@keyframes skillAppear {
+	from {
+		opacity: 0;
+		transform: scale(0.8) translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1) translateY(0);
+	}
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -124,7 +213,16 @@ main {
 	box-shadow: var(--shadow);
 }
 
+/* Main Content Animation */
+.sectionMain {
+	animation: fadeInUp 1.2s ease-out both;
+}
+
 /* Hero Section */
+.sectionMain header {
+	animation: fadeInUp 1.2s ease-out both;
+}
+
 .container {
 	display: flex;
 	align-items: center;
@@ -155,6 +253,17 @@ main {
 	margin: 0;
 }
 
+/* Typing Animation */
+.typing-text {
+	display: inline-block;
+	overflow: hidden;
+	border-right: 3px solid var(--text-light);
+	white-space: nowrap;
+	animation: typing 3s steps(25, end) 1s 1 normal both,
+		blink 1s infinite;
+	max-width: fit-content;
+}
+
 .coverimage {
 	order: 1;
 }
@@ -170,8 +279,205 @@ main {
 }
 
 .myimage:hover {
-	transform: scale(1.05);
+	transform: scale(1.05) rotate(2deg);
 	border-color: rgba(255, 255, 255, 0.5);
+	animation: float 2s ease-in-out infinite;
+}
+
+/* About Me Section */
+.about-section {
+	animation: fadeInUp 0.8s ease-out 0.3s both;
+	margin: 3rem 0;
+}
+
+.about-section h2 {
+	animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.about-section .main {
+	animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.about-section .main .innertext {
+	animation: fadeInUp 0.8s ease-out both;
+}
+
+.about-section .main .innertext:nth-child(1) {
+	animation-delay: 0.8s;
+}
+
+.about-section .main .innertext:nth-child(2) {
+	animation-delay: 1.0s;
+}
+
+.about-section .main .innertext:nth-child(3) {
+	animation-delay: 1.2s;
+}
+
+/* Skills Section */
+.skills-section {
+	margin: 2rem 0;
+	animation: fadeInUp 0.8s ease-out 1.4s both;
+}
+
+.tech-stack-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1rem;
+	margin: 1.5rem 0;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tech-column {
+	padding: 1rem;
+	animation: fadeInUp 0.8s ease-out both;
+}
+
+.tech-column:nth-child(1) {
+	animation-delay: 1.6s;
+}
+
+.tech-column:nth-child(2) {
+	animation-delay: 1.7s;
+}
+
+.tech-column:nth-child(3) {
+	animation-delay: 1.8s;
+}
+
+.tech-column:nth-child(4) {
+	animation-delay: 1.9s;
+}
+
+.tech-column:nth-child(5) {
+	animation-delay: 2.0s;
+}
+
+
+
+.tech-category-title {
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-bottom: 2px solid var(--accent-color);
+	padding-bottom: 0.5rem;
+}
+
+.tech-column .skill-tag {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 0.5rem;
+	animation: skillAppear 0.6s ease-out both;
+	font-size: 0.85rem;
+	padding: 0.4rem 0.75rem;
+}
+
+.tech-column .skill-tag:last-child {
+	margin-bottom: 0;
+}
+
+.skill-tag {
+	padding: 0.5rem 1rem;
+	border-radius: 4px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	animation: skillAppear 0.6s ease-out both;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Skill Categories */
+.skill-tag[data-category="frontend"] {
+	background: #61dafb;
+	color: var(--text-primary);
+	animation-delay: 0.1s;
+}
+
+.skill-tag[data-category="backend"] {
+	background: #ff6b6b;
+	color: var(--text-light);
+	animation-delay: 0.2s;
+}
+
+.skill-tag[data-category="database"] {
+	background: #4caf50;
+	color: var(--text-light);
+	animation-delay: 0.3s;
+}
+
+.skill-tag[data-category="tools"] {
+	background: #9c27b0;
+	color: var(--text-light);
+	animation-delay: 0.4s;
+}
+
+.skill-tag[data-category="game"] {
+	background: #ff9800;
+	color: var(--text-light);
+	animation-delay: 0.5s;
+}
+
+.skill-tag[data-category="cloud"] {
+	background: #2196f3;
+	color: var(--text-light);
+	animation-delay: 0.6s;
+}
+
+.skill-tag[data-category="mobile"] {
+	background: #e91e63;
+	color: var(--text-light);
+	animation-delay: 0.7s;
+}
+
+
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+	display: none;
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1001;
+	background: var(--background-dark);
+	border: none;
+	padding: 0.75rem;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	flex-direction: column;
+	gap: 4px;
+	transition: var(--transition);
+	box-shadow: var(--shadow);
+}
+
+.mobile-menu-toggle span {
+	width: 25px;
+	height: 3px;
+	background: var(--text-light);
+	border-radius: 2px;
+	transition: var(--transition);
+}
+
+.mobile-menu-toggle:hover {
+	transform: scale(1.1);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+	transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+	opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+	transform: rotate(-45deg) translate(6px, -6px);
 }
 
 /* Navigation */
@@ -186,6 +492,7 @@ main {
 	z-index: 1000;
 	overflow-y: auto;
 	border-right: 1px solid rgba(255, 255, 255, 0.1);
+	animation: slideInFromLeft 0.8s ease-out;
 }
 
 .innertube {
@@ -194,6 +501,23 @@ main {
 
 .innertube section {
 	margin-bottom: 3rem;
+	animation: fadeInLeft 0.6s ease-out both;
+}
+
+.innertube section:nth-child(1) {
+	animation-delay: 0.2s;
+}
+
+.innertube section:nth-child(2) {
+	animation-delay: 0.4s;
+}
+
+.innertube section:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+.innertube section:nth-child(4) {
+	animation-delay: 0.8s;
 }
 
 .nav h2 {
@@ -219,6 +543,23 @@ nav ul {
 
 nav li {
 	margin-bottom: 0.75rem;
+	animation: fadeInLeft 0.5s ease-out both;
+}
+
+nav li:nth-child(1) {
+	animation-delay: 0.1s;
+}
+
+nav li:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+nav li:nth-child(3) {
+	animation-delay: 0.3s;
+}
+
+nav li:nth-child(4) {
+	animation-delay: 0.4s;
 }
 
 nav a {
@@ -231,12 +572,30 @@ nav a {
 	background: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	transition: var(--transition);
+	position: relative;
+	overflow: hidden;
+}
+
+nav a::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+	transition: left 0.5s;
+}
+
+nav a:hover::before {
+	left: 100%;
 }
 
 nav a:hover {
 	background: rgba(255, 255, 255, 0.2);
-	transform: translateX(4px);
+	transform: translateX(8px) scale(1.02);
 	border-color: rgba(255, 255, 255, 0.4);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 nav a span {
@@ -377,23 +736,49 @@ hr {
 	main {
 		margin-left: 280px;
 	}
+
+	.tech-stack-grid {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 0.75rem;
+	}
+
+	.tech-column {
+		padding: 0.75rem;
+	}
+}
+
+@media (max-width: 900px) {
+	.tech-stack-grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 0.75rem;
+	}
 }
 
 @media (max-width: 768px) {
+	.mobile-menu-toggle {
+		display: flex;
+	}
+
 	.nav {
 		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+	}
+
+	.nav.nav-open {
+		transform: translateX(0);
 	}
 
 	main {
 		margin-left: 0;
 		padding: 1rem;
+		padding-top: 4rem;
 		border-radius: 0;
 	}
 
 	.container {
 		flex-direction: column;
 		gap: 2rem;
-		padding: 3rem 1.5rem;
+		padding: 2rem 1rem;
 	}
 
 	.coverimage {
@@ -404,8 +789,31 @@ hr {
 		font-size: 2.5rem;
 	}
 
+	.typing-text {
+		font-size: 1.1rem;
+	}
+
 	h2 {
 		font-size: 2rem;
+	}
+
+	.tech-stack-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.75rem;
+	}
+
+	.tech-column {
+		padding: 0.75rem;
+	}
+
+	.tech-category-title {
+		font-size: 0.9rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.skill-tag {
+		font-size: 0.8rem;
+		padding: 0.4rem 0.8rem;
 	}
 }
 

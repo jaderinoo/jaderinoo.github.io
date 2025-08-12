@@ -13,13 +13,19 @@
 </head>
 
 <body>
+  <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <main>
     <section class="sectionMain">
       <header>
         <div class="container">
           <div class="covertext">
             <h1>Jad El-Khatib</h1>
-            <p>Web Applications Developer</p>
+            <p class="typing-text">Web Applications Developer</p>
           </div>
           <div class="coverimage">
             <img class="myimage" src="images/me.jpeg" alt="Portrait of Jad El-Khatib" width="250">
@@ -27,7 +33,7 @@
         </div>
       </header>
 
-      <section>
+      <section class="about-section">
         <h2>About Me</h2>
         <div class="main">
           <p class="innertext">
@@ -63,10 +69,57 @@
           </p>
         </div>
       </section>
+
+      <section class="skills-section">
+        <h2>Tech Stack</h2>
+        <div class="tech-stack-grid">
+          <div class="tech-column">
+            <h3 class="tech-category-title">Frontend</h3>
+            <div class="skill-tag" data-category="frontend">JavaScript</div>
+            <div class="skill-tag" data-category="frontend">HTML/CSS</div>
+            <div class="skill-tag" data-category="frontend">React</div>
+            <div class="skill-tag" data-category="frontend">Vue</div>
+            <div class="skill-tag" data-category="frontend">Nuxt</div>
+            <div class="skill-tag" data-category="frontend">Pinia</div>
+          </div>
+
+          <div class="tech-column">
+            <h3 class="tech-category-title">Backend</h3>
+            <div class="skill-tag" data-category="backend">Python</div>
+            <div class="skill-tag" data-category="backend">Django</div>
+            <div class="skill-tag" data-category="backend">Node.js</div>
+            <div class="skill-tag" data-category="backend">PHP</div>
+            <div class="skill-tag" data-category="backend">Phalcon</div>
+          </div>
+
+          <div class="tech-column">
+            <h3 class="tech-category-title">Database</h3>
+            <div class="skill-tag" data-category="database">MySQL</div>
+            <div class="skill-tag" data-category="database">PostgreSQL</div>
+            <div class="skill-tag" data-category="database">Oracle DB</div>
+          </div>
+
+          <div class="tech-column">
+            <h3 class="tech-category-title">Cloud/DevOps</h3>
+            <div class="skill-tag" data-category="cloud">AWS</div>
+            <div class="skill-tag" data-category="cloud">Azure</div>
+            <div class="skill-tag" data-category="cloud">GCP</div>
+            <div class="skill-tag" data-category="tools">Git</div>
+            <div class="skill-tag" data-category="tools">Docker</div>
+          </div>
+
+          <div class="tech-column">
+            <h3 class="tech-category-title">Other</h3>
+            <div class="skill-tag" data-category="mobile">Ionic Capacitor</div>
+            <div class="skill-tag" data-category="game">Phaser 3/4</div>
+            <div class="skill-tag" data-category="game">Source Engine</div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
-  <nav class="nav">
+  <nav class="nav" id="mobile-nav">
     <div class="innertube">
       <section>
         <h2 class="innertext">Organizations</h2>
@@ -149,6 +202,50 @@
   </nav>
 
   <div class="navSide"></div>
+
+  <script>
+    // Mobile menu toggle functionality
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      nav.classList.toggle('nav-open');
+    });
+
+    // Close mobile menu when clicking on a nav link
+    const navLinks = document.querySelectorAll('.nav a');
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active');
+        nav.classList.remove('nav-open');
+      });
+    });
+
+    // Add scroll-triggered animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, observerOptions);
+
+    // Observe sections for animations
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Add staggered animation to skill tags
+    document.querySelectorAll('.skill-tag').forEach((tag, index) => {
+      tag.style.animationDelay = `${0.1 + (index * 0.1)}s`;
+    });
+  </script>
 </body>
 
 </html>
