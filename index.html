@@ -37,23 +37,39 @@
         <h2>About Me</h2>
         <div class="main">
           <p class="innertext">
-            My name is Jad El-Khatib, and I'm currently a Web Applications Developer at the College of Engineering's
-            CAEN department at the University of Michigan. Born and raised in Ann Arbor, Michigan to Syrian parents, my
-            family had a feeling early on that I would have a future in computing. Shortly after grade school, I studied
-            Computer Science at Eastern Michigan University while working at our family-owned bakery. Those years taught
-            me perseverance and creativity, and I poured that into my first substantial personal project, AGOSS (A Game
-            of Some Sort). Building features like custom save and mapping systems gave me the confidence to branch out
-            from the family business and start my professional career in tech.
+            My name is Jad El-Khatib, and I'm currently a Web Applications Developer at the University of Michigan's
+            College of Engineering. Born and raised in Ann Arbor, Michigan to Syrian parents, my family had a feeling
+            early on that I would have a future in computing. Shortly after grade school, I studied Computer Science at
+            Eastern Michigan University while working at our family-owned bakery.
           </p>
+          <p class="innertext">
+            Those years taught me perseverance and creativity, which I poured into my first substantial personal
+            project, AGOSS (A Game of Some Sort). Building features like custom save and mapping systems gave me the
+            confidence to branch out from the family business and start my professional career in tech.
+          </p>
+          <p class="innertext">
+            Whether in my university role or personal ventures, I aim to create tools and experiences that solve
+            problems, empower others, and inspire learning. I'm driven by the belief that good software isn't just
+            functional—it should be intuitive, impactful, and built with the people using it in mind.
+          </p>
+        </div>
+      </section>
+
+      <section class="experience-section">
+        <h2>Experience</h2>
+        <div class="main">
           <p class="innertext">
             I began my career at the University of Michigan's central IT department (ITS), where I worked on large-scale
             projects intended for use across the Ann Arbor campus and potentially other U-M campuses. While some
             initiatives were shelved during the COVID-19 shift in priorities, the experience prepared me for my move to
-            the College of Engineering. At CAEN, I've spent the past 4½ years developing and maintaining internal
-            applications for stakeholders across the college, including position management systems, performance review
-            platforms, and scholarship award systems. While I often operate as a solo developer within a team
-            environment, I work closely with stakeholders as a project owner and maintainer to ensure applications meet
-            their needs.
+            the College of Engineering.
+          </p>
+          <p class="innertext">
+            At CAEN, I've spent the past <span id="caen-years">4½ years</span> developing and maintaining internal
+            applications for stakeholders
+            across the college, including position management systems, performance review platforms, and scholarship
+            award systems. While I often operate as a solo developer within a team environment, I work closely with
+            stakeholders as a project owner and maintainer to ensure applications meet their needs.
           </p>
           <p class="innertext">
             Outside of my university work, I am the technical co-founder of CloudCompany, where we developed
@@ -61,11 +77,6 @@
             the web or natively on mobile. While the app is no longer in active development, the experience was
             invaluable, and my co-founder and I still keep in touch to explore other creative ideas we might bring to
             life in the future.
-          </p>
-          <p class="innertext">
-            Whether in my university role or personal ventures, I aim to create tools and experiences that solve
-            problems, empower others, and inspire learning. I’m driven by the belief that good software isn’t just
-            functional—it should be intuitive, impactful, and built with the people using it in mind.
           </p>
         </div>
       </section>
@@ -149,6 +160,12 @@
           <li>
             <a href="https://github.com/jaderinoo/AGOSS" target="_blank" rel="noopener">
               <span>AGOSS</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.cloudcompany.arkitect&hl=en_US&pli=1"
+              target="_blank" rel="noopener">
+              <span>SkillRocket</span>
             </a>
           </li>
         </ul>
@@ -245,7 +262,41 @@
     document.querySelectorAll('.skill-tag').forEach((tag, index) => {
       tag.style.animationDelay = `${0.1 + (index * 0.1)}s`;
     });
+
+    // Calculate years at CAEN automatically
+    function calculateYearsAtCAEN() {
+      const startDate = new Date('2021-07-01'); // July 1st, 2021
+      const currentDate = new Date();
+
+      const yearsDiff = currentDate.getFullYear() - startDate.getFullYear();
+      const monthsDiff = currentDate.getMonth() - startDate.getMonth();
+
+      const totalMonths = yearsDiff * 12 + monthsDiff;
+      const years = Math.floor(totalMonths / 12);
+      const months = totalMonths % 12;
+
+      let yearsText;
+      if (years === 0) {
+        yearsText = `${months} month${months !== 1 ? 's' : ''}`;
+      } else if (months === 0) {
+        yearsText = `${years} year${years !== 1 ? 's' : ''}`;
+      } else if (months === 6) {
+        yearsText = `${years}½ years`;
+      } else {
+        yearsText = `${years} year${years !== 1 ? 's' : ''} and ${months} month${months !== 1 ? 's' : ''}`;
+      }
+
+      const caenYearsElement = document.getElementById('caen-years');
+      if (caenYearsElement) {
+        caenYearsElement.textContent = yearsText;
+      }
+    }
+
+    // Calculate on page load
+    calculateYearsAtCAEN();
   </script>
 </body>
+
+</html>
 
 </html>
